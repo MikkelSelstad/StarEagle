@@ -8,6 +8,8 @@ public class NewBehaviourScript : MonoBehaviour {
 	
 	}
 
+    public GameObject playerShip;
+
     public float AmbientSpeed = 100.0f;
 
     public float RotationSpeed = 200.0f;
@@ -24,7 +26,7 @@ public class NewBehaviourScript : MonoBehaviour {
         AddRot.eulerAngles = new Vector3(-pitch, yaw, -roll);
         GetComponent<Rigidbody>().rotation *= AddRot;
         Vector3 AddPos = Vector3.forward;
-        AddPos = playerhip.rigidbody.rotation * AddPos;
+        AddPos = playerShip.GetComponent<Rigidbody>().rotation * AddPos;
         GetComponent<Rigidbody>().velocity = AddPos * (Time.deltaTime * AmbientSpeed);
     }
 
