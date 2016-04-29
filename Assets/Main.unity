@@ -89,6 +89,24 @@ NavMeshSettings:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8c5799874c4517248a8bef68824eb1bf, type: 3}
   m_PrefabInternal: {fileID: 823028947}
+--- !u!1 &261834523 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 8c5799874c4517248a8bef68824eb1bf, type: 3}
+  m_PrefabInternal: {fileID: 823028947}
+--- !u!114 &261834524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 261834523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a6affe637d9194dbf9427099f36708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerShip: {fileID: 1041223505}
+  AmbientSpeed: 100
+  RotationSpeed: 200
 --- !u!1001 &823028947
 Prefab:
   m_ObjectHideFlags: 0
@@ -141,6 +159,7 @@ GameObject:
   - 4: {fileID: 1041223508}
   - 114: {fileID: 1041223507}
   - 54: {fileID: 1041223506}
+  - 114: {fileID: 1041223509}
   m_Layer: 0
   m_Name: playerShip
   m_TagString: Player
@@ -187,6 +206,20 @@ Transform:
   - {fileID: 174587606}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1041223509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1041223505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a6affe637d9194dbf9427099f36708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerShip: {fileID: 1041223505}
+  AmbientSpeed: 100
+  RotationSpeed: 200
 --- !u!1 &1260596222
 GameObject:
   m_ObjectHideFlags: 0
