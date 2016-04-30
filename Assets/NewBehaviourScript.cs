@@ -14,7 +14,9 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public float RotationSpeed = 200.0f;
 
-    
+    float roll = 0;
+    float pitch = 0;
+    float yaw = 0;
 
     void UpdateFunction()
     {
@@ -27,11 +29,9 @@ public class NewBehaviourScript : MonoBehaviour {
     void Update () {
 
         Quaternion AddRot = Quaternion.identity;
-        float roll = 0;
-        float pitch = 0;
-        float yaw = 0;
-// roll = Input.GetAxis("Roll") * (Time.deltaTime * RotationSpeed);
-// pitch = Input.GetAxis("Pitch") * (Time.deltaTime * RotationSpeed);
+
+        //roll = Input.GetAxis("Roll") * (Time.deltaTime * RotationSpeed);
+        //pitch = Input.GetAxis("Pitch") * (Time.deltaTime * RotationSpeed);
         //yaw = Input.GetAxis("Yaw") * (Time.deltaTime * RotationSpeed);
         AddRot.eulerAngles = new Vector3(-pitch, yaw, -roll);
         GetComponent<Rigidbody>().rotation *= AddRot;
@@ -39,10 +39,27 @@ public class NewBehaviourScript : MonoBehaviour {
         AddPos = playerShip.GetComponent<Rigidbody>().rotation * AddPos;
         GetComponent<Rigidbody>().velocity = AddPos * (Time.deltaTime * AmbientSpeed);
 
+        Mathf.Clamp(roll, 2, -2);
 
-        if (Input.GetKey("up"))
+        if (Input.GetKeyDown("up"))
         {
             AmbientSpeed = 500;
+ 
         }
+
+        if (Input.GetKey("left"))
+        {
+            roll += 1;
+            print("left pressed");
+        }
+
+        
+
+        if (Input.GetKey("right"))
+        {
+            roll -= 1;
+            print(roll);
+        }
+
     }
 }
