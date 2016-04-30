@@ -16,6 +16,8 @@ public class NewBehaviourScript : MonoBehaviour {
     float pitch = 0;
     float yaw = 0;
 
+    public int fuel = 100;
+
 
     // Use this for initialization
     void Start () {
@@ -28,6 +30,8 @@ public class NewBehaviourScript : MonoBehaviour {
     {
             
        }
+
+
 
     // Update is called once per frame
     void Update () {
@@ -42,7 +46,11 @@ public class NewBehaviourScript : MonoBehaviour {
         GetComponent<Rigidbody>().velocity = AddPos * (Time.deltaTime * AmbientSpeed);
 
 
-        //Mathf.Clamp(roll, 2, -2);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print(fuel);
+            boost();
+        }
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -50,7 +58,6 @@ public class NewBehaviourScript : MonoBehaviour {
             flyUp();
         }
 
-        print(pitch);
         if (Input.GetKey(KeyCode.DownArrow))
         {
 
@@ -59,6 +66,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            print("pader");
             flyLeft();
         }
 
@@ -90,14 +98,14 @@ public class NewBehaviourScript : MonoBehaviour {
 
         bool pastBottomScreenEdge = Camera.main.WorldToScreenPoint(transform.position).y > Screen.height;
 
-        transform.Translate(0, pastBottomScreenEdge ? 0 : .5f, 0);
+        transform.Translate(0, pastBottomScreenEdge ? 0 : .2f, 0);
     }
 
 
     void flyUp()
         {
         bool pastTopScreenEdge = Camera.main.WorldToScreenPoint(transform.position).y <= 0;
-        transform.Translate(0, pastTopScreenEdge ? 0 : -.5f, 0);
+        transform.Translate(0, pastTopScreenEdge ? 0 : -.2f, 0);
     }
 
 
@@ -105,16 +113,27 @@ public class NewBehaviourScript : MonoBehaviour {
         {
         bool pastLeftScreenEdge = Camera.main.WorldToScreenPoint(transform.position).x <= 0;
 
-        transform.Translate(pastLeftScreenEdge ? 0 : -.5f, 0, 0);
+        transform.Translate(pastLeftScreenEdge ? 0 : -.2f, 0, 0);
         }
 
     void flyRigth()
         {
         bool pastRightScreenEdge = Camera.main.WorldToScreenPoint(transform.position).x >= Screen.width;
 
-        transform.Translate(pastRightScreenEdge ? 0 : .5F, 0, 0);
+        transform.Translate(pastRightScreenEdge ? 0 : .2F, 0, 0);
         }
 
+    void boost()
+        {
+            if(fuel > 0)
+            {
+                GetComponentInParent<Cameracontrol>().AmbientSpeed = 800;
+                fuel -= 1;
+                print(fuel);
+                print("boost");
 
+            }
+            else GetComponentInParent<Cameracontrol>().AmbientSpeed = 0;
+        }
 
-}
+    }
