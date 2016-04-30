@@ -10,23 +10,21 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public float RotationSpeed = 200.0f;
 
-    public float movementSpeed = 500.0f;
+    public float movementSpeed = 500;
 
-    double roll = 0;
+    float roll = 0;
     float pitch = 0;
     float yaw = 0;
 
     // Use this for initialization
     void Start () {
 
-        shipbody = GetComponent<Rigidbody>();
+        shipbody = playerShip.GetComponent<Rigidbody>();
     }
 
 
     void UpdateFunction()
     {
-
-
             
        }
 
@@ -35,9 +33,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         Quaternion AddRot = Quaternion.identity;
 
-        //roll = Input.GetAxis("Roll") * (Time.deltaTime * RotationSpeed);
-        //pitch = Input.GetAxis("Pitch") * (Time.deltaTime * RotationSpeed);
-        //yaw = Input.GetAxis("Yaw") * (Time.deltaTime * RotationSpeed);
+
         AddRot.eulerAngles = new Vector3(-pitch, yaw, -roll);
         GetComponent<Rigidbody>().rotation *= AddRot;
         Vector3 AddPos = Vector3.forward;
@@ -49,38 +45,31 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            shipbody.MovePosition(transform.position + transform.up * Time.deltaTime);
+            shipbody.MovePosition(transform.position + transform.up * Time.deltaTime * movementSpeed);
 
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            shipbody.MovePosition(transform.position - transform.up * Time.deltaTime);
+            shipbody.MovePosition(transform.position - transform.up * Time.deltaTime * movementSpeed);
 
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            roll -= 1;
+            roll -= 0.1f;
             print("left pressed");
-            shipbody.MovePosition(transform.position - transform.right * Time.deltaTime);
+            shipbody.MovePosition(transform.position - transform.right * Time.deltaTime * movementSpeed);
         }
 
         
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            roll += 000.10f;
+            roll += 0.1f;
             print(roll);
-            shipbody.MovePosition(transform.position + transform.right * Time.deltaTime);
+            shipbody.MovePosition(transform.position + transform.right * Time.deltaTime * movementSpeed);
         }
-
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
-            {
-                shipbody.MovePosition(transform.position + transform.up * Time.deltaTime);
-                shipbody.MovePosition(transform.position - transform.right * Time.deltaTime);
-            }
-
 
     }
 }
