@@ -10,7 +10,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public float RotationSpeed = 200.0f;
 
-    public float movementSpeed = 500;
+    public float movementSpeed = 0;
 
     float roll = 0;
     float pitch = 0;
