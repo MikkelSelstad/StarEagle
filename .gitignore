@@ -67,3 +67,6 @@ Temp
 *.pidb
 *.sln 
 Library/shadercompiler-UnityShaderCompiler.exe0.log
+Library/metadata/00/00000000000000002000000000000000
+*.bin
+Library/shadercompiler-UnityShaderCompiler.exe0.log

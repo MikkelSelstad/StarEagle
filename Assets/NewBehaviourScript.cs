@@ -45,19 +45,33 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
+            if (pitch < 0.3f)
+            {
+                pitch += 0.05f;
+            }
             shipbody.MovePosition(transform.position + transform.up * Time.deltaTime * movementSpeed);
+
 
         }
 
+        print(pitch);
         if (Input.GetKey(KeyCode.DownArrow))
         {
+            if(pitch > -0.3f)
+            {
+                pitch -= 0.05f;
+            }
             shipbody.MovePosition(transform.position - transform.up * Time.deltaTime * movementSpeed);
 
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            roll += 0.01f;
+            if (roll < 1.0f)
+            {
+                roll += 0.05f;
+            }
+
             print("left pressed");
             shipbody.MovePosition(transform.position - transform.right * Time.deltaTime * movementSpeed);
         }
@@ -66,20 +80,13 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            roll -= 0.01f;
-            print(roll);
+            if(roll > -1.0f)
+                {
+                roll -= 0.05f;
+                }
             shipbody.MovePosition(transform.position + transform.right * Time.deltaTime * movementSpeed);
         }
 
-        if (roll < 0)
-        {
-            roll += 0.1f;
-        }
-
-        if (roll > 0)
-        {
-            roll -= 0.1f;
-        }
 
     }
 }
