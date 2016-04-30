@@ -10,6 +10,8 @@ public class NewBehaviourScript : MonoBehaviour {
 
     public float RotationSpeed = 200.0f;
 
+    public float movementSpeed = 500.0f;
+
     double roll = 0;
     float pitch = 0;
     float yaw = 0;
@@ -36,7 +38,7 @@ public class NewBehaviourScript : MonoBehaviour {
         //roll = Input.GetAxis("Roll") * (Time.deltaTime * RotationSpeed);
         //pitch = Input.GetAxis("Pitch") * (Time.deltaTime * RotationSpeed);
         //yaw = Input.GetAxis("Yaw") * (Time.deltaTime * RotationSpeed);
-        //AddRot.eulerAngles = new Vector3(-pitch, yaw, -roll);
+        AddRot.eulerAngles = new Vector3(-pitch, yaw, -roll);
         GetComponent<Rigidbody>().rotation *= AddRot;
         Vector3 AddPos = Vector3.forward;
         AddPos = playerShip.GetComponent<Rigidbody>().rotation * AddPos;
@@ -68,7 +70,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            roll += 000.1;
+            roll += 000.10f;
             print(roll);
             shipbody.MovePosition(transform.position + transform.right * Time.deltaTime);
         }
