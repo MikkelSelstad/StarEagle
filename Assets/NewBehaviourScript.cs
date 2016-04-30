@@ -57,18 +57,28 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            roll -= 0.1f;
+            roll += 0.01f;
             print("left pressed");
             shipbody.MovePosition(transform.position - transform.right * Time.deltaTime * movementSpeed);
         }
 
-        
+
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            roll += 0.1f;
+            roll -= 0.01f;
             print(roll);
             shipbody.MovePosition(transform.position + transform.right * Time.deltaTime * movementSpeed);
+        }
+
+        if (roll < 0)
+        {
+            roll += 0.1f;
+        }
+
+        if (roll > 0)
+        {
+            roll -= 0.1f;
         }
 
     }
