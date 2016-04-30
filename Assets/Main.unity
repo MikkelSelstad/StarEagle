@@ -375,7 +375,7 @@ MeshCollider:
   m_GameObject: {fileID: 616976227}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: c501f5c680461bb46855601df5c498eb, type: 3}
@@ -712,7 +712,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1041223505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43888474, y: 1.2817969, z: 8.398802}
+  m_LocalPosition: {x: 0, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1260596227}
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipCam: {fileID: 0}
-  AmbientSpeed: 500
+  AmbientSpeed: 200
 --- !u!54 &1260596229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2912,15 +2912,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: c501f5c680461bb46855601df5c498eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c501f5c680461bb46855601df5c498eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c501f5c680461bb46855601df5c498eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 122.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c501f5c680461bb46855601df5c498eb, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2940,7 +2940,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c501f5c680461bb46855601df5c498eb, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: c501f5c680461bb46855601df5c498eb, type: 3}
       propertyPath: m_Materials.Array.data[0]

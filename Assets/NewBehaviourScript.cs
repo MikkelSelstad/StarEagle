@@ -16,6 +16,7 @@ public class NewBehaviourScript : MonoBehaviour {
     float pitch = 0;
     float yaw = 0;
 
+
     // Use this for initialization
     void Start () {
 
@@ -45,48 +46,75 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            if (pitch < 0.3f)
-            {
-                pitch += 0.05f;
-            }
-            shipbody.MovePosition(transform.position + transform.up * Time.deltaTime * movementSpeed);
 
-
+            flyUp();
         }
 
         print(pitch);
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            if(pitch > -0.3f)
-            {
-                pitch -= 0.05f;
-            }
-            shipbody.MovePosition(transform.position - transform.up * Time.deltaTime * movementSpeed);
 
+            flyDown();
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (roll < 1.0f)
-            {
-                roll += 0.05f;
-            }
-
-            print("left pressed");
-            shipbody.MovePosition(transform.position - transform.right * Time.deltaTime * movementSpeed);
+            flyLeft();
         }
 
 
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            if(roll > -1.0f)
-                {
-                roll -= 0.05f;
-                }
-            shipbody.MovePosition(transform.position + transform.right * Time.deltaTime * movementSpeed);
+
+            flyRigth();
         }
 
 
+
+        
+
+
+
+
+
+
     }
+
+
+
+    // Ship flight controll
+
+    void flyDown()
+    {
+
+        bool pastBottomScreenEdge = Camera.main.WorldToScreenPoint(transform.position).y > Screen.height;
+
+        transform.Translate(0, pastBottomScreenEdge ? 0 : .5f, 0);
+    }
+
+
+    void flyUp()
+        {
+        bool pastTopScreenEdge = Camera.main.WorldToScreenPoint(transform.position).y <= 0;
+        transform.Translate(0, pastTopScreenEdge ? 0 : -.5f, 0);
+    }
+
+
+    void flyLeft()
+        {
+        bool pastLeftScreenEdge = Camera.main.WorldToScreenPoint(transform.position).x <= 0;
+
+        transform.Translate(pastLeftScreenEdge ? 0 : -.5f, 0, 0);
+        }
+
+    void flyRigth()
+        {
+        bool pastRightScreenEdge = Camera.main.WorldToScreenPoint(transform.position).x >= Screen.width;
+
+        transform.Translate(pastRightScreenEdge ? 0 : .5F, 0, 0);
+        }
+
+
+
 }
