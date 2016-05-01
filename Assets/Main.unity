@@ -683,8 +683,9 @@ GameObject:
   - 223: {fileID: 648771021}
   - 114: {fileID: 648771020}
   - 114: {fileID: 648771019}
+  - 114: {fileID: 648771022}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -697,12 +698,12 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 648771017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 15.19}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 1886090699}
-  m_Father: {fileID: 1041223508}
-  m_RootOrder: 0
+  m_Father: {fileID: 1260596227}
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -764,6 +765,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &648771022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 648771017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a6affe637d9194dbf9427099f36708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &661212963 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: bf17bd7ac84c03341abc808aab25fc39, type: 3}
@@ -1002,10 +1014,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1041223508}
   - 54: {fileID: 1041223506}
-  - 114: {fileID: 1041223509}
   - 33: {fileID: 1041223511}
   - 23: {fileID: 1041223510}
   - 64: {fileID: 1041223507}
+  - 114: {fileID: 1041223509}
   m_Layer: 0
   m_Name: playerShip
   m_TagString: Player
@@ -1049,8 +1061,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 648771018}
+  m_Children: []
   m_Father: {fileID: 1260596227}
   m_RootOrder: 0
 --- !u!114 &1041223509
@@ -1061,15 +1072,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1041223505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34a6affe637d9194dbf9427099f36708, type: 3}
+  m_Script: {fileID: 11500000, guid: d35d011374f10714292a749a807cbfb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerShip: {fileID: 1041223505}
-  shipbody: {fileID: 1041223506}
-  AmbientSpeed: 100
-  RotationSpeed: 200
-  movementSpeed: 0
-  fuel: 100
+  Target: {fileID: 648771018}
+  RotationSpeed: 5
 --- !u!23 &1041223510
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1389,6 +1396,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1041223508}
+  - {fileID: 648771018}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1260596228
