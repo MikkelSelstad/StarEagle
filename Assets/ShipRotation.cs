@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class ShipRotation : MonoBehaviour {
 
 
     public GameObject playerShip;
@@ -60,13 +60,11 @@ public class NewBehaviourScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-
             flyDown();
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            print("pader");
             flyLeft();
         }
 
